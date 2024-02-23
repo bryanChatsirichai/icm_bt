@@ -79,6 +79,9 @@ char* pico_reply;
 int num_parts;
 
 void setup() {
+  //LED
+  pinMode(LED_BUILTIN, OUTPUT);
+
   //bluetooth setup
   SerialBT.begin();
   Serial.begin(9600);
@@ -86,6 +89,13 @@ void setup() {
 
   //for jp8900-16pin
   SoftwareSerial.begin(9600);
+
+
+  // ***** Motor *****
+  rear_motor.setMaxSpeed(RPM);
+  front_motor.setMaxSpeed(RPM);
+  steppers.addStepper(rear_motor);
+  steppers.addStepper(front_motor);
 
   
   // ***** EEPROM Read *****
@@ -152,7 +162,13 @@ void loop() {
         char** android_message_parts_array = decode_android_message(android_message, &num_parts);
         char* functionName = android_message_parts_array[0]; 
           if (strcmp(functionName, "Action1") == 0){
-              //Serial.println(android_message);
+              Serial.println(android_message);
+              //dummy move motor 1 step per click
+              zoom_current = 0;
+              setAccel(ZOOM, CALI_ACCEL);
+              setCurrentPos(ZOOM, zoom_current * MS_STEP);
+              zoom_current =  zoom_current + 1;
+              moveMotor(ZOOM, zoom_current,0);
               SerialBT.write("Action1");
             }
           else if(strcmp(functionName, "syncDevices") == 0){
@@ -165,12 +181,20 @@ void loop() {
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
+          
+          //clean up the array space
+          //free(android_message_parts_array);
+          
+          for (int i = 0; i < num_parts; i++) {
+            free(android_message_parts_array[i]);
+          }
       }
       // Clearing the array,Remove all characters from the android_message
       for (int i = 0; i < MAX_LENGTH; i++) {
           android_message[i] = '\0';
       }
       Serial.println("-------");
-      delay(1000);
+      digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on
+      delay(200);
 }
 
