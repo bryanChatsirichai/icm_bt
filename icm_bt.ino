@@ -12,7 +12,7 @@
 #include "SoftwareSerial.h"
 
 // Maximum number of parts expected after splitting message from android
-#define MAX_PARTS 10
+#define MAX_PARTS 20
 #define MAX_LENGTH 50
 
 /* Motor Parameters */
@@ -71,7 +71,10 @@ SoftwareSerial SoftwareSerial(RX,TX); // RX, TX
 char** decode_android_message(const char* input, int* num_parts);
 bool isNullOrEmpty(const char *str);
 char* syncDevices();
-char* setShutterTime() ;
+char* setShutterTime();
+char* setMotorTime();
+char* setExcessTime();
+char* switchOrientation();
 
 // Define a character array to hold the concatenated string
 char android_message[MAX_LENGTH]; // adjust the size according to your needs
@@ -96,6 +99,7 @@ void setup() {
   front_motor.setMaxSpeed(RPM);
   steppers.addStepper(rear_motor);
   steppers.addStepper(front_motor);
+
 
   
   // ***** EEPROM Read *****
@@ -178,6 +182,21 @@ void loop() {
           }
           else if(strcmp(functionName, "setShutterTime") == 0){
             pico_reply = setShutterTime();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "setMotorTime") == 0){
+            pico_reply = setMotorTime();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "setExcessTime") == 0){
+            pico_reply = setExcessTime();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "switchOrientation") == 0){
+            pico_reply = switchOrientation();
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
