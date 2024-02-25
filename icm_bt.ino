@@ -200,7 +200,21 @@ void loop() {
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
-          
+          else if(strcmp(functionName, "switchRearMotorRotation") == 0){
+            pico_reply = switchRearMotorRotation();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "switchFrontMotorRotation") == 0){
+            pico_reply = switchFrontMotorRotation();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "resetCamera") == 0){
+            pico_reply = resetCamera();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
           //clean up the array space
           //free(android_message_parts_array);
           
