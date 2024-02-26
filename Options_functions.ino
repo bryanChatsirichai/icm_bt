@@ -9,6 +9,9 @@ char* switchOrientation(){
 
   // Copy the original string to the result string
   strcpy(result, str);
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
   char** android_message_parts_array = decode_android_message(android_message, &num_parts);
   char* functionName = android_message_parts_array[0]; 
   char* orientation_str = android_message_parts_array[1];
@@ -30,6 +33,9 @@ char* switchRearMotorRotation(){
 
   // Copy the original string to the result string
   strcpy(result, str);
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
   char** android_message_parts_array = decode_android_message(android_message, &num_parts);
   char* functionName = android_message_parts_array[0]; 
   char* rear_rotation_direction_str = android_message_parts_array[1];
@@ -51,6 +57,9 @@ char* switchFrontMotorRotation(){
 
   // Copy the original string to the result string
   strcpy(result, str);
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
   char** android_message_parts_array = decode_android_message(android_message, &num_parts);
   char* functionName = android_message_parts_array[0]; 
   char* front_rotation_direction_str = android_message_parts_array[1];
@@ -73,6 +82,9 @@ char* resetCamera(){
 
   // Copy the original string to the result string
   strcpy(result, str);
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
   EEPROM.write(5,0);
   EEPROM.write(6,0);                 
   EEPROM.write(7,0);
@@ -85,32 +97,35 @@ char* resetCamera(){
 }
 
 //reset motorcalibration
-// char* resetMotorCalibration(){
-//   Serial.println("@resetMotorCalibration");
-//   int result_length;
-//   char str[30] = "resetMotorCalibration";
+char* resetMotorCalibration(){
+  Serial.println("@resetMotorCalibration");
+  int result_length;
+  char str[30] = "resetMotorCalibration";
   
-//   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-//   char* result = (char*)malloc(strlen(str) + 20);
-//   // Finding the length of the string
+  // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
+  char* result = (char*)malloc(strlen(str) + 20);
+  // Finding the length of the string
 
-//   // Copy the original string to the result string
-//   strcpy(result, str);
-//   EEPROM.write(0,0);
-//   EEPROM.write(1,0);
-//   EEPROM.write(2,0);
-//   EEPROM.write(3,0);
-//   EEPROM.write(4,0);
-//   EEPROM.write(9, 0);
-//   EEPROM.write(10,0);
-//   focus_range = 0;
-//   zoom_range = 0;
-//   focus_current = 0;
-//   zoom_current = 0;
-//   orientation = 0;
-//   rear_rotation_direction = 0;
-//   front_rotation_direction = 0;
-//   EEPROM.commit();
-//   Serial.println(result);
-//   return result;
-// }
+  // Copy the original string to the result string
+  strcpy(result, str);
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
+  EEPROM.write(0,0);
+  EEPROM.write(1,0);
+  EEPROM.write(2,0);
+  EEPROM.write(3,0);
+  EEPROM.write(4,0);
+  EEPROM.write(9, 0);
+  EEPROM.write(10,0);
+  focus_range = 0;
+  zoom_range = 0;
+  focus_current = 0;
+  zoom_current = 0;
+  orientation = 0;
+  rear_rotation_direction = 0;
+  front_rotation_direction = 0;
+  EEPROM.commit();
+  Serial.println(result);
+  return result;
+}

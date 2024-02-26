@@ -75,6 +75,12 @@ char* setShutterTime();
 char* setMotorTime();
 char* setExcessTime();
 char* switchOrientation();
+char* zoomMoveMin();
+char* zoomMoveMax();
+char* zoomSetMax();
+char* focusMoveMin();
+char* focusMoveMax();
+char* focusSetMax();
 
 // Define a character array to hold the concatenated string
 char android_message[MAX_LENGTH]; // adjust the size according to your needs
@@ -212,6 +218,41 @@ void loop() {
           }
           else if(strcmp(functionName, "resetCamera") == 0){
             pico_reply = resetCamera();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "resetMotorCalibration") == 0){
+            pico_reply = resetMotorCalibration();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomMoveMin") == 0){
+            pico_reply = zoomMoveMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomMoveMax") == 0){
+            pico_reply = zoomMoveMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomSetMax") == 0){
+            pico_reply = zoomSetMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "focusMoveMin") == 0){
+            pico_reply = focusMoveMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "focusMoveMax") == 0){
+            pico_reply = focusMoveMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "focusSetMax") == 0){
+            pico_reply = focusSetMax();
             SerialBT.write(pico_reply);
             free(pico_reply);
           }

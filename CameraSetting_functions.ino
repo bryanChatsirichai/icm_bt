@@ -9,6 +9,9 @@ char* setShutterTime() {
 
   // Copy the original string to the result string
   strcpy(result, str);
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
   char** android_message_parts_array = decode_android_message(android_message, &num_parts);
   char* functionName = android_message_parts_array[0]; 
   char* shutter_time_str = android_message_parts_array[1];
@@ -30,6 +33,9 @@ char* setMotorTime() {
 
   // Copy the original string to the result string
   strcpy(result, str);
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
   char** android_message_parts_array = decode_android_message(android_message, &num_parts);
   char* functionName = android_message_parts_array[0]; 
   char* motor_time_str = android_message_parts_array[1];
@@ -51,6 +57,9 @@ char* setExcessTime() {
 
   // Copy the original string to the result string
   strcpy(result, str);
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
   char** android_message_parts_array = decode_android_message(android_message, &num_parts);
   char* functionName = android_message_parts_array[0]; 
   char* excess_option_set_str = android_message_parts_array[1];
