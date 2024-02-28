@@ -77,10 +77,18 @@ char* setExcessTime();
 char* switchOrientation();
 char* zoomMoveMin();
 char* zoomMoveMax();
+char* zoomSetMin();
 char* zoomSetMax();
 char* focusMoveMin();
 char* focusMoveMax();
+char* focusSetMin();
 char* focusSetMax();
+char* povZoomMin();
+char* povZoomMax();
+char* povZoomSet();
+char* povFocusMin();
+char* povFocusMax();
+char* povFocusSet();
 
 // Define a character array to hold the concatenated string
 char android_message[MAX_LENGTH]; // adjust the size according to your needs
@@ -236,6 +244,11 @@ void loop() {
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
+          else if(strcmp(functionName, "zoomSetMin") == 0){
+            pico_reply = zoomSetMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
           else if(strcmp(functionName, "zoomSetMax") == 0){
             pico_reply = zoomSetMax();
             SerialBT.write(pico_reply);
@@ -251,11 +264,48 @@ void loop() {
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
+          else if(strcmp(functionName, "focusSetMin") == 0){
+            pico_reply = focusSetMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
           else if(strcmp(functionName, "focusSetMax") == 0){
             pico_reply = focusSetMax();
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
+          else if(strcmp(functionName, "povZoomMin") == 0){
+            pico_reply = povZoomMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }          
+          else if(strcmp(functionName, "povZoomMax") == 0){
+            pico_reply = povZoomMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZoomSet") == 0){
+            pico_reply = povZoomSet();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povFocusMin") == 0){
+            pico_reply = povFocusMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }          
+          else if(strcmp(functionName, "povFocusMax") == 0){
+            pico_reply = povFocusMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povFocusSet") == 0){
+            pico_reply = povFocusSet();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          
+
           //clean up the array space
           //free(android_message_parts_array);
           

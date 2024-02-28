@@ -135,6 +135,16 @@ char* syncDevices() {
   result_length = strlen(result);
   result[result_length + 1] = '\0';
 
+  //13
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
+  char MOTOR_STEPS_str[5];
+  sprintf(MOTOR_STEPS_str, "%d", MOTOR_STEPS);
+  strcat(result, MOTOR_STEPS_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
+
   // Return the result string, make sure pico and android knows the order
   //to do change order maybe follow EEPROM ordering to fix
   // for now syncDevices_shutterTimeValue_maxShutterTime_....
