@@ -18,6 +18,9 @@ char* setShutterTime() {
   shutter_time = atoi(shutter_time_str); // Convert string to integer 
   EEPROM.write(5, shutter_time);
   EEPROM.commit();
+  strcat(result, shutter_time_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
   Serial.println(result);
   return result;
 }
@@ -42,6 +45,9 @@ char* setMotorTime() {
   motor_time = atoi(motor_time_str); // Convert string to integer 
   EEPROM.write(6, motor_time);
   EEPROM.commit();
+  strcat(result, motor_time_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
   Serial.println(result);
   return result;
 }
@@ -66,6 +72,9 @@ char* setExcessTime() {
   excess_option_set = atoi(excess_option_set_str); // Convert string to integer 
   EEPROM.write(7, excess_option_set);
   EEPROM.commit();
+  strcat(result, excess_option_set_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
   Serial.println(result);
   return result;
 }

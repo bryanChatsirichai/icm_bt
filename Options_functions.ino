@@ -18,6 +18,9 @@ char* switchOrientation(){
   orientation = atoi(orientation_str); // Convert string to integer 
   EEPROM.write(4, orientation);
   EEPROM.commit();
+  strcat(result, orientation_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
   Serial.println(result);
   return result;
 }
@@ -42,6 +45,9 @@ char* switchRearMotorRotation(){
   rear_rotation_direction = atoi(rear_rotation_direction_str); // Convert string to integer 
   EEPROM.write(8, rear_rotation_direction);
   EEPROM.commit();
+  strcat(result, rear_rotation_direction_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
   Serial.println(result);
   return result;
 }
@@ -66,6 +72,9 @@ char* switchFrontMotorRotation(){
   front_rotation_direction = atoi(front_rotation_direction_str); // Convert string to integer 
   EEPROM.write(9, front_rotation_direction);
   EEPROM.commit();
+  strcat(result, front_rotation_direction_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
   Serial.println(result);
   return result;
 }
