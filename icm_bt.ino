@@ -16,7 +16,7 @@
 #define MAX_LENGTH 50
 
 /* Motor Parameters */
-#define MOTOR_STEPS 200 //
+#define MOTOR_STEPS 100 //maybe need edit to 100, 100 or 200 is 1 rotation
 #define RPM 1000
 #define FOCUS 0
 #define ZOOM 1
@@ -188,6 +188,18 @@ void loop() {
               zoom_current =  zoom_current + 1;
               moveMotor(ZOOM, zoom_current,0);
               SerialBT.write("Action1");
+            }
+            else if (strcmp(functionName, "Action2") == 0){
+              Serial.println(android_message);
+              //dummy move motor 1 step per click
+              zoom_current = 0;
+              setCurrentPos(ZOOM, zoom_current * MS_STEP);
+              setAccel(ZOOM, CALI_ACCEL);
+              moveMotor(ZOOM, 200,0);
+              zoom_current = 0;
+              setCurrentPos(ZOOM, zoom_current * MS_STEP);
+              setAccel(ZOOM, CALI_ACCEL);
+              SerialBT.write("Action2");
             }
           else if(strcmp(functionName, "syncDevices") == 0){
             pico_reply = syncDevices();
