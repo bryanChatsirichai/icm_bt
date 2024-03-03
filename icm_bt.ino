@@ -89,6 +89,44 @@ char* povZoomSet();
 char* povFocusMin();
 char* povFocusMax();
 char* povFocusSet();
+char* zoomToMin();
+char* zoomToMax();
+char* zoomToMinBack();
+char* zoomToMaxBack();
+char* focusToMin();
+char* focusToMax();
+char* focusToMinBack();
+char* focusToMaxBack();
+void goDist(int type, int pos_desired, float motor_time, float motor_div,bool goBack, bool lastSequence,bool showScreen);
+
+
+
+void open_Shutter() { // Controls the shutter of a Nikon camera
+  //Serial.println("Open");
+  digitalWrite(FOCUS_CAMERA, HIGH);  
+  digitalWrite(SHUTTER_CAMERA, HIGH);
+  delay(150);
+  digitalWrite(FOCUS_CAMERA, LOW);
+  digitalWrite(SHUTTER_CAMERA, LOW);
+  delay(150);
+  digitalWrite(FOCUS_CAMERA, HIGH);  
+  digitalWrite(SHUTTER_CAMERA, HIGH);
+  delay(1000);
+}
+void close_Shutter() { // Controls the shutter of a Nikon camera
+  //Serial.println("Close");
+  digitalWrite(FOCUS_CAMERA, HIGH);  
+  digitalWrite(SHUTTER_CAMERA, HIGH);
+  delay(150);
+  digitalWrite(FOCUS_CAMERA, LOW);
+  digitalWrite(SHUTTER_CAMERA, LOW);
+  delay(150);
+  digitalWrite(FOCUS_CAMERA, HIGH);  
+  digitalWrite(SHUTTER_CAMERA, HIGH);
+  delay(1000);
+}
+
+
 
 // Define a character array to hold the concatenated string
 char android_message[MAX_LENGTH]; // adjust the size according to your needs
@@ -106,6 +144,13 @@ void setup() {
 
   //for jp8900-16pin
   SoftwareSerial.begin(9600);
+
+  //camera shutter and focus for capturing pictures 
+  pinMode(FOCUS_CAMERA, OUTPUT);
+  pinMode(SHUTTER_CAMERA, OUTPUT);
+  digitalWrite(FOCUS_CAMERA, HIGH);  
+  digitalWrite(SHUTTER_CAMERA, HIGH);
+  delay(150);
 
 
   // ***** Motor *****
@@ -129,6 +174,12 @@ void setup() {
   rear_rotation_direction = EEPROM.read(8);
   front_rotation_direction = EEPROM.read(9);
   first_time = EEPROM.read(10);
+
+  //set back last know position after on/off
+  setAccel(ZOOM, CALI_ACCEL);
+  setAccel(FOCUS, CALI_ACCEL);
+  setCurrentPos(ZOOM, zoom_current * MS_STEP);
+  setCurrentPos(FOCUS, focus_current * MS_STEP);
 
 
   // ***** Default Values *****
@@ -316,7 +367,46 @@ void loop() {
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
-          
+          else if(strcmp(functionName, "zoomToMin") == 0){
+            pico_reply = zoomToMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomToMax") == 0){
+            pico_reply = zoomToMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomToMinBack") == 0){
+            pico_reply = zoomToMinBack();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomToMaxBack") == 0){
+            pico_reply = zoomToMaxBack();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "focusToMin") == 0){
+            pico_reply = focusToMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "focusToMax") == 0){
+            pico_reply = focusToMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "focusToMinBack") == 0){
+            pico_reply = focusToMinBack();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "focusToMaxBack") == 0){
+            pico_reply = focusToMaxBack();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
 
           //clean up the array space
           //free(android_message_parts_array);
