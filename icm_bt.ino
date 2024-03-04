@@ -12,8 +12,8 @@
 #include "SoftwareSerial.h"
 
 // Maximum number of parts expected after splitting message from android
-#define MAX_PARTS 20
-#define MAX_LENGTH 50
+#define MAX_PARTS 25
+#define MAX_LENGTH 70
 
 /* Motor Parameters */
 #define MOTOR_STEPS 100 //maybe need edit to 100, 100 or 200 is 1 rotation
@@ -97,6 +97,10 @@ char* focusToMin();
 char* focusToMax();
 char* focusToMinBack();
 char* focusToMaxBack();
+char* povZoomToValueMin();
+char* povZoomToValueMax();
+char* povZoomToValueSet();
+char* povZoomToValueBackSet();
 void goDist(int type, int pos_desired, float motor_time, float motor_div,bool goBack, bool lastSequence,bool showScreen);
 
 
@@ -407,6 +411,27 @@ void loop() {
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
+          else if(strcmp(functionName, "povZoomToValueMin") == 0){
+            pico_reply = povZoomToValueMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }          
+          else if(strcmp(functionName, "povZoomToValueMax") == 0){
+            pico_reply = povZoomToValueMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZoomToValueSet") == 0){
+            pico_reply = povZoomToValueSet();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZoomToValueBackSet") == 0){
+            pico_reply = povZoomToValueBackSet();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+
 
           //clean up the array space
           //free(android_message_parts_array);
@@ -423,4 +448,5 @@ void loop() {
       digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on
       delay(200);
 }
+
 
