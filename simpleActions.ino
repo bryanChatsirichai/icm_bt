@@ -338,3 +338,163 @@ char* povZoomToValueBackSet() {
   Serial.println(result);
   return result;
 }
+
+char* povFocusToValueMin() {
+  Serial.println("@povFocusToValueMin");
+  int result_length;
+  char str[30] = "povFocusToValueMin";
+  
+  // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
+  char* result = (char*)malloc(strlen(str) + 20);
+  // Finding the length of the string
+  // motor decrease 1 step per click
+  setAccel(FOCUS, CALI_ACCEL);
+  setCurrentPos(FOCUS, focus_current * MS_STEP);
+  focus_current =  focus_current - 1;
+  moveMotor(FOCUS, focus_current,0);
+
+  // Copy the original string to the result string
+  strcpy(result, str);
+  result_length = strlen(result);
+
+
+  //focus current
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
+  char focus_current_str[5];
+  sprintf(focus_current_str, "%d", focus_current);
+  strcat(result, focus_current_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
+
+  //focus range
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
+  char focus_range_str[5];
+  sprintf(focus_range_str, "%d", focus_range);
+  strcat(result, focus_range_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
+
+  Serial.println(result);
+  // EEPROM.write(2, focus_current);
+  // EEPROM.commit();
+  return result;
+}
+
+char* povFocusToValueMax() {
+  Serial.println("@povFocusToValueMax");
+  int result_length;
+  char str[30] = "povFocusToValueMax";
+  
+  // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
+  char* result = (char*)malloc(strlen(str) + 20);
+  // Finding the length of the string
+  // motor increase 1 step per click
+  setAccel(FOCUS, CALI_ACCEL);
+  setCurrentPos(FOCUS, focus_current * MS_STEP);
+  focus_current =  focus_current + 1;
+  moveMotor(FOCUS, focus_current,0);
+
+  // Copy the original string to the result string
+  strcpy(result, str);
+  result_length = strlen(result);
+
+
+  //focus current
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
+  char focus_current_str[5];
+  sprintf(focus_current_str, "%d", focus_current);
+  strcat(result, focus_current_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
+
+  //focus range
+  result_length = strlen(result);
+  result[result_length] = '_';
+  result[result_length + 1] = '\0';
+  char focus_range_str[5];
+  sprintf(focus_range_str, "%d", focus_range);
+  strcat(result, focus_range_str);
+  result_length = strlen(result);
+  result[result_length + 1] = '\0';
+
+  Serial.println(result);
+  // EEPROM.write(2, focus_current);
+  // EEPROM.commit();
+  return result;
+}
+
+
+char* povFocusToValueSet() {
+  Serial.println("@povFocusToValueSet");
+  int result_length;
+  char str[40] = "povFocusToValueSet";
+  
+  // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
+  char* result = (char*)malloc(strlen(str) + 20);
+
+  // Copy the original string to the result string
+  strcpy(result, str);
+  result_length = strlen(result);
+
+
+  char** android_message_parts_array = decode_android_message(android_message, &num_parts);
+  char* functionName = android_message_parts_array[0]; 
+  char* focus_current_str = android_message_parts_array[1];//get back the initial focus_current
+  char* focus_target_str = android_message_parts_array[2];
+  focus_current = atoi(focus_current_str); // Convert string to integer 
+  int pos_desired = atoi(focus_target_str); // Convert string to integer
+
+  //go back to initial focus
+  setAccel(FOCUS, CALI_ACCEL);
+  moveMotor(FOCUS, focus_current,0);
+
+  //carry out main action
+  goDist(FOCUS, pos_desired, motor_time,1,true,true,true);
+
+
+  Serial.println(result);
+  return result;
+}
+
+
+char* povFocusToValueBackSet() {
+  Serial.println("@povFocusToValueBackSet");
+  int result_length;
+  char str[40] = "povFocusToValueBackSet";
+  
+  // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
+  char* result = (char*)malloc(strlen(str) + 20);
+
+  // Copy the original string to the result string
+  strcpy(result, str);
+  result_length = strlen(result);
+
+
+  char** android_message_parts_array = decode_android_message(android_message, &num_parts);
+  char* functionName = android_message_parts_array[0]; 
+  char* focus_current_str = android_message_parts_array[1];//get back the initial focus_current
+  char* focus_target_str = android_message_parts_array[2];
+  focus_current = atoi(focus_current_str); // Convert string to integer
+  int previous_pos = focus_current; 
+  int pos_desired = atoi(focus_target_str); // Convert string to integer
+
+  //go back to initial focus
+  setAccel(FOCUS, CALI_ACCEL);
+  moveMotor(FOCUS, focus_current,0);
+
+  //carry out main action
+  //going back is now part of motor_time
+  goDist(FOCUS, pos_desired, motor_time,2,false,false,true);
+  goDist(FOCUS, previous_pos, motor_time,2,false,true,false);
+
+
+  Serial.println(result);
+  return result;
+}
+

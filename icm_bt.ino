@@ -101,6 +101,10 @@ char* povZoomToValueMin();
 char* povZoomToValueMax();
 char* povZoomToValueSet();
 char* povZoomToValueBackSet();
+char* povFocusToValueMin();
+char* povFocusToValueMax();
+char* povFocusToValueSet();
+char* povFocusToValueBackSet();
 void goDist(int type, int pos_desired, float motor_time, float motor_div,bool goBack, bool lastSequence,bool showScreen);
 
 
@@ -431,11 +435,30 @@ void loop() {
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
+          else if(strcmp(functionName, "povFocusToValueMin") == 0){
+            pico_reply = povFocusToValueMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }          
+          else if(strcmp(functionName, "povFocusToValueMax") == 0){
+            pico_reply = povFocusToValueMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povFocusToValueSet") == 0){
+            pico_reply = povFocusToValueSet();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povFocusToValueBackSet") == 0){
+            pico_reply = povFocusToValueBackSet();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
 
 
           //clean up the array space
           //free(android_message_parts_array);
-          
           for (int i = 0; i < num_parts; i++) {
             free(android_message_parts_array[i]);
           }
