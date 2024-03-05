@@ -105,6 +105,24 @@ char* povFocusToValueMin();
 char* povFocusToValueMax();
 char* povFocusToValueSet();
 char* povFocusToValueBackSet();
+char* zoomMinFocusMin();
+char* zoomMaxFocusMax();
+char* zoomMinFocusMax();
+char* zoomMaxFocusMin();
+char* zoomMinFocusMinBack();
+char* zoomMaxFocusMaxBack();
+char* zoomMinFocusMaxBack();
+char* zoomMaxFocusMinBack();
+
+char* povZFToValueZMin();
+char* povZFToValueZMax();
+char* povZFToValueFMin();
+char* povZFToValueFMax();
+char* povZFToValueZSet();
+char* povZFToValueFSet();
+char* povZFToValueStart();
+char* povZFToValueBackStart();
+
 void goDist(int type, int pos_desired, float motor_time, float motor_div,bool goBack, bool lastSequence,bool showScreen);
 
 
@@ -452,6 +470,87 @@ void loop() {
           }
           else if(strcmp(functionName, "povFocusToValueBackSet") == 0){
             pico_reply = povFocusToValueBackSet();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomMinFocusMin") == 0){
+            pico_reply = zoomMinFocusMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }          
+          else if(strcmp(functionName, "zoomMaxFocusMax") == 0){
+            pico_reply = zoomMaxFocusMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomMinFocusMax") == 0){
+            pico_reply = zoomMinFocusMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomMaxFocusMin") == 0){
+            pico_reply = zoomMaxFocusMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomMinFocusMinBack") == 0){
+            pico_reply = zoomMinFocusMinBack();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }          
+          else if(strcmp(functionName, "zoomMaxFocusMaxBack") == 0){
+            pico_reply = zoomMaxFocusMaxBack();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomMinFocusMaxBack") == 0){
+            pico_reply = zoomMinFocusMaxBack();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomMaxFocusMinBack") == 0){
+            pico_reply = zoomMaxFocusMinBack();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+
+          else if(strcmp(functionName, "povZFToValueZMin") == 0){
+            pico_reply = povZFToValueZMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZFToValueZMax") == 0){
+            pico_reply = povZFToValueZMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZFToValueZSet") == 0){
+            pico_reply = povZFToValueZSet();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZFToValueFMin") == 0){
+            pico_reply = povZFToValueFMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZFToValueFMax") == 0){
+            pico_reply = povZFToValueFMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZFToValueFSet") == 0){
+            pico_reply = povZFToValueFSet();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZFToValueStart") == 0){
+            pico_reply = povZFToValueStart();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "povZFToValueBackStart") == 0){
+            pico_reply = povZFToValueBackStart();
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
