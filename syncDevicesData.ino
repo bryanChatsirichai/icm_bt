@@ -1,10 +1,10 @@
 char* syncDevices() {
   Serial.println("@syncDevices");
   int result_length;
-  char str[30] = "syncDevices";
+  char str[50] = "syncDevices";
   
-  // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  // Allocate memory for the result string,40 is just an arbitrary buffer size for the integer
+  char* result = (char*)malloc(strlen(str) + 40);
   // Finding the length of the string
 
   // Copy the original string to the result string

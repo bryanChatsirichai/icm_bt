@@ -123,6 +123,14 @@ char* povZFToValueFSet();
 char* povZFToValueStart();
 char* povZFToValueBackStart();
 
+char* bokeh();
+char* fireworkFocus(); 
+char* fireworkZoomFocus();
+char* zoomBlurMin();
+char* zoomBlurMax();
+char* sinWave1();
+char* sinWave2(); 
+
 void goDist(int type, int pos_desired, float motor_time, float motor_div,bool goBack, bool lastSequence,bool showScreen);
 
 
@@ -554,21 +562,61 @@ void loop() {
             SerialBT.write(pico_reply);
             free(pico_reply);
           }
+          //PRESET actions
+          else if(strcmp(functionName, "bokeh") == 0){
+            pico_reply = bokeh();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "fireworkFocus") == 0){
+            pico_reply = fireworkFocus();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "fireworkZoomFocus") == 0){
+            pico_reply = fireworkZoomFocus();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomBlurMin") == 0){
+            pico_reply = zoomBlurMin();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "zoomBlurMax") == 0){
+            pico_reply = zoomBlurMax();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "sinWave1") == 0){
+            pico_reply = sinWave1();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
+          else if(strcmp(functionName, "sinWave2") == 0){
+            pico_reply = sinWave2();
+            SerialBT.write(pico_reply);
+            free(pico_reply);
+          }
 
 
           //clean up the array space
           //free(android_message_parts_array);
           for (int i = 0; i < num_parts; i++) {
-            free(android_message_parts_array[i]);
+            if(android_message_parts_array[i] != NULL){
+              free(android_message_parts_array[i]);
+            }
+            //free(android_message_parts_array[i]);
           }
       }
       // Clearing the array,Remove all characters from the android_message
-      for (int i = 0; i < MAX_LENGTH; i++) {
-          android_message[i] = '\0';
-      }
+      // for (int i = 0; i < MAX_LENGTH; i++) {
+      //     android_message[i] = '\0';
+      // }
+      strcpy(android_message, "");
       Serial.println("-------");
       digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on
-      delay(200);
+      delay(300);
 }
 
 

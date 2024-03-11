@@ -16,6 +16,15 @@ char* setShutterTime() {
   char* functionName = android_message_parts_array[0]; 
   char* shutter_time_str = android_message_parts_array[1];
   shutter_time = atoi(shutter_time_str); // Convert string to integer 
+
+  ///
+  max_motor_time = shutter_time;
+  if(motor_time > max_motor_time){
+    motor_time = max_motor_time;
+  }
+  EEPROM.write(6, motor_time);
+  ///
+
   EEPROM.write(5, shutter_time);
   EEPROM.commit();
   strcat(result, shutter_time_str);
