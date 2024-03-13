@@ -4,7 +4,11 @@ char* syncDevices() {
   char str[50] = "syncDevices";
   
   // Allocate memory for the result string,40 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 40);
+  char* result = (char*)malloc(strlen(str) + 50);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   // Copy the original string to the result string

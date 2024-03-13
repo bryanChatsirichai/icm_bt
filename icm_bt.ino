@@ -263,7 +263,8 @@ void loop() {
       else {
         Serial.println(android_message);
         char** android_message_parts_array = decode_android_message(android_message, &num_parts);
-        char* functionName = android_message_parts_array[0]; 
+        char* functionName = android_message_parts_array[0];
+        //to fix to handle null from function 
           if (strcmp(functionName, "Action1") == 0){
               Serial.println(android_message);
               //dummy move motor 1 step per click
@@ -604,6 +605,8 @@ void loop() {
           //free(android_message_parts_array);
           for (int i = 0; i < num_parts; i++) {
             if(android_message_parts_array[i] != NULL){
+              //Serial.println("freeing!");
+              //Serial.println(android_message_parts_array[i]);
               free(android_message_parts_array[i]);
             }
             //free(android_message_parts_array[i]);
@@ -613,7 +616,14 @@ void loop() {
       // for (int i = 0; i < MAX_LENGTH; i++) {
       //     android_message[i] = '\0';
       // }
-      strcpy(android_message, "");
+      // Serial.println("Clear android message!");
+      // strcpy(android_message, "");
+      // Serial.println(android_message);
+      //android_message[MAX_LENGTH]; // adjust the size according to your needs
+      memset(android_message, 0, MAX_LENGTH);
+      //Serial.println(sizeof(android_message));
+
+
       Serial.println("-------");
       digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on
       delay(300);

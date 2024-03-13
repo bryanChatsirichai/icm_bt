@@ -4,7 +4,11 @@ char* zoomToMin() {
   char str[30] = "zoomToMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -25,7 +29,11 @@ char* zoomToMax() {
   char str[30] = "zoomToMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -46,7 +54,11 @@ char* zoomToMinBack() {
   char str[30] = "zoomToMinBack";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -70,7 +82,11 @@ char* zoomToMaxBack() {
   char str[30] = "zoomToMaxBack";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -95,7 +111,11 @@ char* focusToMin() {
   char str[30] = "focusToMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -116,7 +136,11 @@ char* focusToMax() {
   char str[30] = "focusToMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -137,7 +161,11 @@ char* focusToMinBack() {
   char str[30] = "focusToMinBack";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -161,7 +189,11 @@ char* focusToMaxBack() {
   char str[30] = "focusToMaxBack";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -186,7 +218,11 @@ char* povZoomToValueMin() {
   char str[30] = "povZoomToValueMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
   // motor decrease 1 step per click
   setAccel(ZOOM, CALI_ACCEL);
@@ -231,7 +267,11 @@ char* povZoomToValueMax() {
   char str[30] = "povZoomToValueMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
   // motor increase 1 step per click
   setAccel(ZOOM, CALI_ACCEL);
@@ -277,7 +317,11 @@ char* povZoomToValueSet() {
   char str[40] = "povZoomToValueSet";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
 
   // Copy the original string to the result string
   strcpy(result, str);
@@ -310,7 +354,11 @@ char* povZoomToValueBackSet() {
   char str[40] = "povZoomToValueBackSet";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
 
   // Copy the original string to the result string
   strcpy(result, str);
@@ -345,7 +393,11 @@ char* povFocusToValueMin() {
   char str[30] = "povFocusToValueMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
   // motor decrease 1 step per click
   setAccel(FOCUS, CALI_ACCEL);
@@ -390,7 +442,11 @@ char* povFocusToValueMax() {
   char str[30] = "povFocusToValueMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
   // motor increase 1 step per click
   setAccel(FOCUS, CALI_ACCEL);
@@ -436,7 +492,11 @@ char* povFocusToValueSet() {
   char str[40] = "povFocusToValueSet";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
 
   // Copy the original string to the result string
   strcpy(result, str);
@@ -469,7 +529,11 @@ char* povFocusToValueBackSet() {
   char str[40] = "povFocusToValueBackSet";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
 
   // Copy the original string to the result string
   strcpy(result, str);
@@ -504,7 +568,11 @@ char* zoomMinFocusMin() {
   char str[30] = "zoomMinFocusMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -525,7 +593,11 @@ char* zoomMaxFocusMax() {
   char str[30] = "zoomMaxFocusMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -546,7 +618,11 @@ char* zoomMinFocusMax() {
   char str[30] = "zoomMinFocusMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -567,7 +643,11 @@ char* zoomMaxFocusMin() {
   char str[30] = "zoomMaxFocusMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -588,7 +668,11 @@ char* zoomMinFocusMinBack() {
   char str[30] = "zoomMinFocusMinBack";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -613,7 +697,11 @@ char* zoomMaxFocusMaxBack() {
   char str[30] = "zoomMaxFocusMaxBack";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -639,7 +727,11 @@ char* zoomMinFocusMaxBack() {
   char str[30] = "zoomMinFocusMaxBack";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -664,7 +756,11 @@ char* zoomMaxFocusMinBack() {
   char str[30] = "zoomMaxFocusMinBack";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -690,7 +786,11 @@ char* povZFToValueZMin() {
   char str[40] = "povZFToValueZMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
   // motor decrease 1 step per click
   setAccel(ZOOM, CALI_ACCEL);
@@ -735,7 +835,11 @@ char* povZFToValueZMax() {
   char str[40] = "povZFToValueZMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
   // motor increase 1 step per click
   setAccel(ZOOM, CALI_ACCEL);
@@ -781,7 +885,11 @@ char* povZFToValueZSet() {
   char str[40] = "povZFToValueZSet";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
 
   // Copy the original string to the result string
   strcpy(result, str);
@@ -809,7 +917,11 @@ char* povZFToValueFMin() {
   char str[40] = "povZFToValueFMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
   // motor decrease 1 step per click
   setAccel(FOCUS, CALI_ACCEL);
@@ -854,7 +966,11 @@ char* povZFToValueFMax() {
   char str[40] = "povZFToValueFMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
   // motor increase 1 step per click
   setAccel(FOCUS, CALI_ACCEL);
@@ -900,7 +1016,11 @@ char* povZFToValueFSet() {
   char str[40] = "povZFToValueFSet";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
 
   // Copy the original string to the result string
   strcpy(result, str);
@@ -929,7 +1049,11 @@ char* povZFToValueStart() {
   char str[40] = "povZFToValueStart";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
 
   // Copy the original string to the result string
   strcpy(result, str);
@@ -965,7 +1089,11 @@ char* povZFToValueBackStart() {
   char str[40] = "povZFToValueBackStart";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
 
   // Copy the original string to the result string
   strcpy(result, str);

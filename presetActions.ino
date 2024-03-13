@@ -6,7 +6,12 @@ char* bokeh() {
   char str[30] = "bokeh";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 40);
+  // Check for memory allocation failure
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -29,7 +34,11 @@ char* fireworkFocus() {
   char str[30] = "fireworkFocus";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 40);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
 //carry out action
@@ -52,7 +61,11 @@ char* fireworkZoomFocus() {
   char str[30] = "fireworkZoomFocus";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 40);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
 //carry out action
@@ -76,7 +89,11 @@ char* zoomBlurMin() {
   char str[30] = "zoomBlurMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 40);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -99,7 +116,11 @@ char* zoomBlurMax() {
   char str[30] = "zoomBlurMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 40);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -123,7 +144,11 @@ char* sinWave1() {
   char str[30] = "sinWave1";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 40);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action
@@ -181,7 +206,11 @@ char* sinWave2() {
   char str[30] = "sinWave2";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 40);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   //carry out action

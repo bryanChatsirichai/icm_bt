@@ -4,7 +4,11 @@ char* setShutterTime() {
   char str[30] = "setShutterTime";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   // Copy the original string to the result string
@@ -40,7 +44,11 @@ char* setMotorTime() {
   char str[30] = "setMotorTime";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   // Copy the original string to the result string
@@ -67,7 +75,11 @@ char* setExcessTime() {
   char str[20] = "setExcessTime";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   // Copy the original string to the result string

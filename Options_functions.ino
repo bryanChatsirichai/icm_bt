@@ -4,7 +4,7 @@ char* switchOrientation(){
   char str[30] = "switchOrientation";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
   // Finding the length of the string
 
   // Copy the original string to the result string
@@ -31,7 +31,11 @@ char* switchRearMotorRotation(){
   char str[30] = "switchRearMotorRotation";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   // Copy the original string to the result string
@@ -58,7 +62,11 @@ char* switchFrontMotorRotation(){
   char str[30] = "switchFrontMotorRotation";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   // Copy the original string to the result string
@@ -86,7 +94,11 @@ char* resetCamera(){
   char str[30] = "resetCamera";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   // Copy the original string to the result string
@@ -112,7 +124,11 @@ char* resetMotorCalibration(){
   char str[30] = "resetMotorCalibration";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
-  char* result = (char*)malloc(strlen(str) + 20);
+  char* result = (char*)malloc(strlen(str) + 30);
+  if (result == NULL) {
+        Serial.println("Memory allocation failed");
+        return NULL;
+  }
   // Finding the length of the string
 
   // Copy the original string to the result string
