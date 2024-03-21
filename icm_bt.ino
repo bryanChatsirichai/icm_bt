@@ -624,9 +624,9 @@ void loop() {
       //Serial.println(sizeof(android_message));
 
 
-      Serial.println("-------");
+      //Serial.println("-------");
       digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on
-      delay(300);
+      delay(200);
 }
 
 
