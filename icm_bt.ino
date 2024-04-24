@@ -266,7 +266,7 @@ void loop() {
         char* functionName = android_message_parts_array[0];
         //to fix to handle null from function 
           if (strcmp(functionName, "Action1") == 0){
-              Serial.println(android_message);
+              //Serial.println(android_message);
               //dummy move motor 1 step per click
               zoom_current = 0;
               setAccel(ZOOM, CALI_ACCEL);
@@ -276,7 +276,7 @@ void loop() {
               SerialBT.write("Action1");
             }
             else if (strcmp(functionName, "Action2") == 0){
-              Serial.println(android_message);
+              //Serial.println(android_message);
               //dummy move motor 1 step per click
               zoom_current = 0;
               setCurrentPos(ZOOM, zoom_current * MS_STEP);

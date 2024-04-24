@@ -1,12 +1,12 @@
 char* setShutterTime() {
-  Serial.println("@setShutterTime");
+  //Serial.println("@setShutterTime");
   int result_length;
   char str[30] = "setShutterTime";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -34,19 +34,19 @@ char* setShutterTime() {
   strcat(result, shutter_time_str);
   result_length = strlen(result);
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 char* setMotorTime() {
-  Serial.println("@setMotorTime");
+  //Serial.println("@setMotorTime");
   int result_length;
   char str[30] = "setMotorTime";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -65,19 +65,19 @@ char* setMotorTime() {
   strcat(result, motor_time_str);
   result_length = strlen(result);
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 char* setExcessTime() {
-  Serial.println("@setExcessTime");
+  //Serial.println("@setExcessTime");
   int result_length;
   char str[20] = "setExcessTime";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -96,6 +96,6 @@ char* setExcessTime() {
   strcat(result, excess_option_set_str);
   result_length = strlen(result);
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }

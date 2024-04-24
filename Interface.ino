@@ -15,10 +15,10 @@ void goDist(int type, int pos_desired, float motor_time, float motor_div,bool go
   switch (excess_option_set){
     //pre, delay then move
     case 0:{
-      Serial.println("Pre");
+      //Serial.println("Pre");
       Serial.print("(shutter_time - motor_time) / motor_div = ");
       Serial.print("remainder_time = ");
-      Serial.println((shutter_time - motor_time) / motor_div);
+      //Serial.println((shutter_time - motor_time) / motor_div);
       float remainder_time = (shutter_time - motor_time) / motor_div;
       if(camera_shutter_open == 0){
         open_Shutter();
@@ -31,9 +31,9 @@ void goDist(int type, int pos_desired, float motor_time, float motor_div,bool go
     }
     //split
     case 1:{
-      Serial.println("Split");
+      //Serial.println("Split");
       Serial.print("shutter_time - motor_time = ");
-      Serial.println((shutter_time - motor_time) / motor_div);
+      //Serial.println((shutter_time - motor_time) / motor_div);
       float remainder_time = (shutter_time - motor_time) / motor_div;
       float front_remainder_time = remainder_time / 2;
       float back_remainder_time = remainder_time / 2;
@@ -50,9 +50,9 @@ void goDist(int type, int pos_desired, float motor_time, float motor_div,bool go
     }
     //after, move then delay
     case 2 :{
-      Serial.println("After");
+      //Serial.println("After");
       Serial.print("shutter_time - motor_time = ");
-      Serial.println((shutter_time - motor_time) / motor_div);
+      //Serial.println((shutter_time - motor_time) / motor_div);
       float remainder_time = (shutter_time - motor_time) / motor_div;
       if(camera_shutter_open == 0){
         open_Shutter();
@@ -183,7 +183,7 @@ void goMultiDist(int zoom_desired, int focus_desired, float motor_time, float mo
   // returns to original spot
   if (goBack) {
     if(showScreen){
-      Serial.println("Both going back to position");
+      //Serial.println("Both going back to position");
     }
     moveMultiMotor(prev_zoom, prev_focus,0);
     //see this got any differentce .....

@@ -1,5 +1,5 @@
 char* switchOrientation(){
-  Serial.println("@switchOrientation");
+  //Serial.println("@switchOrientation");
   int result_length;
   char str[30] = "switchOrientation";
   
@@ -21,19 +21,19 @@ char* switchOrientation(){
   strcat(result, orientation_str);
   result_length = strlen(result);
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 char* switchRearMotorRotation(){
-  Serial.println("@switchRearMotorRotation");
+  //Serial.println("@switchRearMotorRotation");
   int result_length;
   char str[30] = "switchRearMotorRotation";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -52,19 +52,19 @@ char* switchRearMotorRotation(){
   strcat(result, rear_rotation_direction_str);
   result_length = strlen(result);
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 char* switchFrontMotorRotation(){
-  Serial.println("@switchFrontMotorRotation");
+  //Serial.println("@switchFrontMotorRotation");
   int result_length;
   char str[30] = "switchFrontMotorRotation";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -83,20 +83,20 @@ char* switchFrontMotorRotation(){
   strcat(result, front_rotation_direction_str);
   result_length = strlen(result);
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 //reset camera setting
 char* resetCamera(){
-  Serial.println("@resetCamera");
+  //Serial.println("@resetCamera");
   int result_length;
   char str[30] = "resetCamera";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -113,20 +113,20 @@ char* resetCamera(){
   motor_time = 0;
   excess_option_set = 0;
   EEPROM.commit();
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 //reset motorcalibration
 char* resetMotorCalibration(){
-  Serial.println("@resetMotorCalibration");
+  //Serial.println("@resetMotorCalibration");
   int result_length;
   char str[30] = "resetMotorCalibration";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -151,6 +151,6 @@ char* resetMotorCalibration(){
   rear_rotation_direction = 0;
   front_rotation_direction = 0;
   EEPROM.commit();
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }

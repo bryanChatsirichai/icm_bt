@@ -15,8 +15,8 @@
  */
 float calcRPM(int ms_steps, float seconds) {
   // return (float)(steps * MS_STEP)/seconds;
-  Serial.print("ms_steps");
-  Serial.println(ms_steps);
+  //Serial.print("ms_steps");
+  //Serial.println(ms_steps);
   delay(500);
   return (float)(ms_steps)/seconds;
 }
@@ -26,8 +26,8 @@ float calcRPM(int ms_steps, float seconds) {
  * - Requires some finetuning
  */
 float calcAccel(int steps, float seconds) {
-  Serial.print("steps");
-  Serial.println(steps);
+  //Serial.print("steps");
+  //Serial.println(steps);
   delay(500);
   float max_speed = calcRPM(steps, seconds);
   return (float)max_speed / seconds;
@@ -81,8 +81,8 @@ void moveMotor(int type, int pos_desired, float motor_time) {
 
   //camera movement base on motor time
   if (motor_time != 0) {
-    Serial.print("steps_to_move");
-    Serial.println(steps_to_move);
+    //Serial.print("steps_to_move");
+    //Serial.println(steps_to_move);
     //delay(100);
     //stepper->setAcceleration(calcAccel(abs(steps_to_move), (float)motor_time));
 
@@ -153,9 +153,9 @@ void setAccel(int type, float accel) {
 void setCurrentPos(int type, float value) {
   AccelStepper *stepper;
   if (type) {
-    Serial.println("zoom");
+    //Serial.println("zoom");
     if(orientation){
-      Serial.println("front_motor");
+      //Serial.println("front_motor");
       stepper = &front_motor;
 
       //default
@@ -168,7 +168,7 @@ void setCurrentPos(int type, float value) {
       }
     }
     else{
-      Serial.println("rear_motor");
+      //Serial.println("rear_motor");
       stepper = &rear_motor;
       
       //default
@@ -184,9 +184,9 @@ void setCurrentPos(int type, float value) {
     //stepper = orientation ? &front_motor : &rear_motor;
   } 
   else {
-    Serial.println("focus");
+    //Serial.println("focus");
     if(orientation){
-      Serial.println("rear_motor");
+      //Serial.println("rear_motor");
       stepper = &rear_motor;
       //default
       if(rear_rotation_direction == 0){
@@ -198,7 +198,7 @@ void setCurrentPos(int type, float value) {
       }
     }
     else{
-      Serial.println("front_motor");
+      //Serial.println("front_motor");
       stepper = &front_motor;
       //default
       if(front_rotation_direction == 0){
@@ -222,8 +222,8 @@ void setCurrentPos(int type, float value) {
  * To not move a motor, put '-1' in the value
  */
 void moveMultiMotor(int zoom_value, int focus_value, float motor_time) {
-  Serial.print("@moveMultiMotor motor_time = ");
-  Serial.println(motor_time);
+  //Serial.print("@moveMultiMotor motor_time = ");
+  //Serial.println(motor_time);
   long rear_position;
   long front_position;
   long positions[2]; 

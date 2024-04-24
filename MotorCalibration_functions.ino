@@ -1,14 +1,14 @@
 /***ZOOM***/
 //andoird will keep track for this calibration
 char* zoomMoveMin() {
-  Serial.println("@zoomMoveMin");
+  //Serial.println("@zoomMoveMin");
   int result_length;
   char str[30] = "zoomMoveMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -24,20 +24,20 @@ char* zoomMoveMin() {
   result_length = strlen(result);
   result[result_length] = '_';
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 //andoird will keep track for this calibration
 char* zoomMoveMax() {
-  Serial.println("@zoomMoveMax");
+  //Serial.println("@zoomMoveMax");
   int result_length;
   char str[30] = "zoomMoveMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -53,19 +53,19 @@ char* zoomMoveMax() {
   result_length = strlen(result);
   result[result_length] = '_';
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 char* zoomSetMin() {
-  Serial.println("@zoomSetMin");
+  //Serial.println("@zoomSetMin");
   int result_length;
   char str[30] = "zoomSetMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -74,21 +74,21 @@ char* zoomSetMin() {
   result_length = strlen(result);
   result[result_length] = '_';
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 
 //andoird send the zoom_current and zoom_range
 char* zoomSetMax() {
-  Serial.println("@zoomSetMax");
+  //Serial.println("@zoomSetMax");
   int result_length;
   char str[30] = "zoomSetMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -114,20 +114,20 @@ char* zoomSetMax() {
   EEPROM.write(1, zoom_range);  
   EEPROM.write(3, zoom_current);
   EEPROM.commit();
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 /***FOCUS***/
 //andoird will keep track for this calibration
 char* focusMoveMin() {
-  Serial.println("@focusMoveMin");
+  //Serial.println("@focusMoveMin");
   int result_length;
   char str[30] = "focusMoveMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -143,20 +143,20 @@ char* focusMoveMin() {
   result_length = strlen(result);
   result[result_length] = '_';
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 //andoird will keep track for this calibration
 char* focusMoveMax() {
-  Serial.println("@focusMoveMax");
+  //Serial.println("@focusMoveMax");
   int result_length;
   char str[30] = "focusMoveMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -172,19 +172,19 @@ char* focusMoveMax() {
   result_length = strlen(result);
   result[result_length] = '_';
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 char* focusSetMin() {
-  Serial.println("@focusSetMin");
+  //Serial.println("@focusSetMin");
   int result_length;
   char str[30] = "focusSetMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -193,21 +193,21 @@ char* focusSetMin() {
   result_length = strlen(result);
   result[result_length] = '_';
   result[result_length + 1] = '\0';
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 
 //andoird send the focus_current and focus_range
 char* focusSetMax() {
-  Serial.println("@focusSetMax");
+  //Serial.println("@focusSetMax");
   int result_length;
   char str[30] = "focusSetMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -233,21 +233,21 @@ char* focusSetMax() {
   EEPROM.write(0, focus_range);
   EEPROM.write(2, focus_current);
   EEPROM.commit();
-  Serial.println(result);
+  //Serial.println(result);
   return result;
   return result;
 }
 
 
 char* povZoomMin() {
-  Serial.println("@povZoomMin");
+  //Serial.println("@povZoomMin");
   int result_length;
   char str[30] = "povZoomMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -282,21 +282,21 @@ char* povZoomMin() {
   result_length = strlen(result);
   result[result_length + 1] = '\0';
 
-  Serial.println(result);
+  //Serial.println(result);
   EEPROM.write(3, zoom_current);
   EEPROM.commit();
   return result;
 }
 
 char* povZoomMax() {
-  Serial.println("@povZoomMax");
+  //Serial.println("@povZoomMax");
   int result_length;
   char str[30] = "povZoomMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -331,7 +331,7 @@ char* povZoomMax() {
   result_length = strlen(result);
   result[result_length + 1] = '\0';
 
-  Serial.println(result);
+  //Serial.println(result);
   EEPROM.write(3, zoom_current);
   EEPROM.commit();
   return result;
@@ -339,14 +339,14 @@ char* povZoomMax() {
 
 
 char* povZoomSet() {
-  Serial.println("@povZoomSet");
+  //Serial.println("@povZoomSet");
   int result_length;
   char str[30] = "povZoomSet";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
 
@@ -375,21 +375,21 @@ char* povZoomSet() {
   result_length = strlen(result);
   result[result_length + 1] = '\0';
 
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 
 
 
 char* povFocusMin() {
-  Serial.println("@povFocusMin");
+  //Serial.println("@povFocusMin");
   int result_length;
   char str[30] = "povFocusMin";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -424,21 +424,21 @@ char* povFocusMin() {
   result_length = strlen(result);
   result[result_length + 1] = '\0';
 
-  Serial.println(result);
+  //Serial.println(result);
   EEPROM.write(2, focus_current);
   EEPROM.commit();
   return result;
 }
 
 char* povFocusMax() {
-  Serial.println("@povFocusMax");
+  //Serial.println("@povFocusMax");
   int result_length;
   char str[30] = "povFocusMax";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -473,7 +473,7 @@ char* povFocusMax() {
   result_length = strlen(result);
   result[result_length + 1] = '\0';
 
-  Serial.println(result);
+  //Serial.println(result);
   EEPROM.write(2, focus_current);
   EEPROM.commit();
   return result;
@@ -481,14 +481,14 @@ char* povFocusMax() {
 
 
 char* povFocusSet() {
-  Serial.println("@povFocusSet");
+  //Serial.println("@povFocusSet");
   int result_length;
   char str[30] = "povFocusSet";
   
   // Allocate memory for the result string,20 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 30);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
 
@@ -517,7 +517,7 @@ char* povFocusSet() {
   result_length = strlen(result);
   result[result_length + 1] = '\0';
 
-  Serial.println(result);
+  //Serial.println(result);
   return result;
 }
 

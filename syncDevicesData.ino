@@ -1,12 +1,12 @@
 char* syncDevices() {
-  Serial.println("@syncDevices");
+  //Serial.println("@syncDevices");
   int result_length;
   char str[50] = "syncDevices";
   
   // Allocate memory for the result string,40 is just an arbitrary buffer size for the integer
   char* result = (char*)malloc(strlen(str) + 50);
   if (result == NULL) {
-        Serial.println("Memory allocation failed");
+        //Serial.println("Memory allocation failed");
         return NULL;
   }
   // Finding the length of the string
@@ -153,7 +153,7 @@ char* syncDevices() {
   //to do change order maybe follow EEPROM ordering to fix
   // for now syncDevices_shutterTimeValue_maxShutterTime_....
   // if no return value just return the function name eg.syncDevices
-  Serial.println(result);
+  //Serial.println(result);
   
   return result;
 }
